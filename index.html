@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>GTM IQ™ Assessment | VNMIQ</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <main class="assessment-container">
+
+    <!-- INTRO -->
+    <section class="intro">
+<section class="intro">
+
+  <div class="brand-logo">
+    <img src="VNMIQ(3).png" alt="VNMIQ">
+  </div>
+
+  <p class="eyebrow">GTM INTELLIGENCE ASSESSMENT</p>
+
+  <h1>WHAT'S YOUR <span>GTM IQ™?</span></h1>
+
+  <p class="intro-text">
+    Evaluate the intelligence, scalability, and maturity of your
+    go-to-market engine across five critical dimensions.
+  </p>
+
+  <div class="assessment-meta">
+    25 QUESTIONS · 5 DIMENSIONS · ~5 MINUTES
+  </div>
+
+</section>
+
+    <!-- FORM -->
+    <form id="gtmAssessment">
+
+      <!-- CONTACT INFORMATION -->
+      <section class="form-section">
+
+        <div class="section-label">ABOUT YOU</div>
+        <h2>Let's start with your company.</h2>
+
+        <div class="contact-grid">
+
+          <div>
+            <label for="firstName">First Name *</label>
+            <input type="text" id="firstName" required>
+          </div>
+
+          <div>
+            <label for="lastName">Last Name *</label>
+            <input type="text" id="lastName" required>
+          </div>
+
+          <div>
+            <label for="email">Work Email *</label>
+            <input type="email" id="email" required>
+          </div>
+
+          <div>
+            <label for="company">Company *</label>
+            <input type="text" id="company" required>
+          </div>
+
+          <div>
+            <label for="title">Job Title</label>
+            <input type="text" id="title">
+          </div>
+
+          <div>
+            <label for="website">Company Website</label>
+            <input type="url" id="website" placeholder="https://">
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- INSTRUCTIONS -->
+      <section class="instructions">
+
+        <div class="section-label">HOW TO ANSWER</div>
+
+        <h2>Rate your GTM as it operates today.</h2>
+
+        <p>
+          Don't answer based on where you plan to be six months from now.
+          Select the response that most accurately reflects your organization today.
+        </p>
+
+        <div class="scale">
+          <span>1 — Not at all</span>
+          <span>2 — Beginning</span>
+          <span>3 — Partially</span>
+          <span>4 — Mostly</span>
+          <span>5 — Fully</span>
+        </div>
+
+      </section>
+
+
+      <!-- QUESTIONS GET INSERTED HERE -->
+      <div id="questionsContainer"></div>
+
+
+      <!-- SUBMIT -->
+      <section class="submit-section">
+
+        <button type="submit">
+          CALCULATE MY GTM IQ™ →
+        </button>
+
+        <p>
+          Your responses will be used to calculate your GTM IQ™
+          and identify opportunities across your go-to-market organization.
+        </p>
+
+      </section>
+
+    </form>
+
+
+    <!-- RESULTS -->
+    <section id="results" class="results hidden">
+
+      <p class="eyebrow">YOUR RESULTS</p>
+
+      <h2>YOUR GTM IQ™</h2>
+
+      <div class="score-circle">
+        <span id="overallScore">0</span>
+        <small>/100</small>
+      </div>
+
+      <h3 id="maturityLevel"></h3>
+
+      <p id="maturityDescription"></p>
+
+
+      <div class="category-results">
+
+        <div class="result-row">
+          <span>POSITIONING IQ™</span>
+          <strong id="positioningScore">0</strong>
+        </div>
+
+        <div class="result-row">
+          <span>MARKET IQ™</span>
+          <strong id="marketScore">0</strong>
+        </div>
+
+        <div class="result-row">
+          <span>REVENUE IQ™</span>
+          <strong id="revenueScore">0</strong>
+        </div>
+
+        <div class="result-row">
+          <span>AI + SYSTEMS IQ™</span>
+          <strong id="systemsScore">0</strong>
+        </div>
+
+        <div class="result-row">
+          <span>TEAM IQ™</span>
+          <strong id="teamScore">0</strong>
+        </div>
+
+      </div>
+
+
+      <div class="opportunity-box">
+
+        <p class="section-label">YOUR BIGGEST OPPORTUNITY</p>
+
+        <h3 id="weakestCategory"></h3>
+
+        <p id="recommendation"></p>
+
+      </div>
+
+
+      <div class="results-cta">
+
+        <h2>READY TO ENGINEER YOUR GTM?</h2>
+
+        <p>
+          Your score identifies where the opportunity exists.
+          VNMIQ can help you determine what to do next.
+        </p>
+
+        <a href="#" class="cta-button">
+          BOOK A GTM INTELLIGENCE REVIEW →
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
+<div id="questionsContainer"></div>
+<div class="brand-logo">
+  <img src="vnmiq-logo.png" alt="VNMIQ">
+</div>
