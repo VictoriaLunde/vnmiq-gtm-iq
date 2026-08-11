@@ -2529,26 +2529,35 @@ document.getElementById(
 
 
     localStorage.setItem(
-
-      "VNMIQ_GTM_IQ_RESULT",
-
-      JSON.stringify(
-        submission
-      )
-
-    );
-
-
-
-    showResults(
-      results
-    );
-
-
-  }
-
+  "VNMIQ_GTM_IQ_RESULT",
+  JSON.stringify(submission)
 );
 
+fetch(SUBMISSION_ENDPOINT, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+  },
+  body: JSON.stringify({
+    name: submission.name,
+    email: submission.email,
+    company: submission.company,
+    website: submission.website,
+    gtm_iq_score: submission.overallScore,
+    icp_market_clarity: submission.categoryScores.icp,
+    positioning_value_proposition: submission.categoryScores.positioning,
+    pipeline_demand_generation: submission.categoryScores.pipeline,
+    sales_process_conversion: submission.categoryScores.sales,
+    revenue_operations_data: submission.categoryScores.revops,
+    ai_automation_readiness: submission.categoryScores.ai,
+    team_scalability: submission.categoryScores.scale
+  })
+});
+
+showResults(
+  results
+);
 
 
 /* ============================================================
