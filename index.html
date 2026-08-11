@@ -1,214 +1,2248 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>GTM IQ™ Assessment | VNMIQ</title>
 
-  <link rel="stylesheet" href="styles.css">
+  <meta
+    name="description"
+    content="Measure the strength, repeatability, and scalability of your go-to-market engine with the VNMIQ GTM IQ™ Assessment."
+  />
+
+  <style>
+    :root {
+      --bg: #0b0b0c;
+      --panel: #141416;
+      --panel2: #1c1c20;
+      --text: #f7f7f8;
+      --muted: #aaaab2;
+      --line: #2b2b31;
+
+      /* CHANGE THIS TO YOUR VNMIQ RED IF NEEDED */
+      --accent: #ff3b30;
+      --accent2: #ff6b63;
+
+      --radius: 20px;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at top,
+          #19191d 0,
+          #0b0b0c 42%
+        );
+
+      color: var(--text);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .wrap {
+      width: min(980px, 92vw);
+      margin: 0 auto;
+      padding: 48px 0 80px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      margin-bottom: 42px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .mark {
+      width: 34px;
+      height: 34px;
+
+      display: grid;
+      place-items: center;
+
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+
+      color: var(--accent);
+    }
+
+    .badge {
+      padding: 8px 11px;
+
+      border: 1px solid var(--line);
+      border-radius: 999px;
+
+      color: var(--muted);
+
+      font-size: 12px;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: 0.95;
+      letter-spacing: -0.055em;
+    }
+
+    .lead {
+      max-width: 760px;
+
+      margin: 0 0 28px;
+
+      color: #c6c6cc;
+
+      font-size: clamp(17px, 2.2vw, 21px);
+      line-height: 1.55;
+    }
+
+    .progress-shell {
+      height: 8px;
+
+      margin: 28px 0 12px;
+
+      background: #24242a;
+
+      border-radius: 999px;
+
+      overflow: hidden;
+    }
+
+    .progress {
+      width: 0;
+      height: 100%;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--accent),
+          var(--accent2)
+        );
+
+      transition: width 0.25s ease;
+    }
+
+    .progress-copy {
+      display: flex;
+      justify-content: space-between;
+
+      margin-bottom: 24px;
+
+      color: var(--muted);
+
+      font-size: 13px;
+    }
+
+    .card {
+      margin-top: 18px;
+      padding: 28px;
+
+      background: rgba(20, 20, 22, 0.92);
+
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+
+      box-shadow: var(--shadow);
+    }
+
+    .section-title {
+      margin: 0 0 8px;
+
+      color: var(--accent);
+
+      font-size: 13px;
+      font-weight: 800;
+
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .question {
+      padding: 24px 0;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .question:first-of-type {
+      border-top: 0;
+    }
+
+    .question h3 {
+      margin: 0 0 14px;
+
+      font-size: 20px;
+      line-height: 1.35;
+    }
+
+    .options {
+      display: grid;
+      gap: 10px;
+    }
+
+    label.option {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+
+      padding: 14px 16px;
+
+      background: #101012;
+
+      border: 1px solid var(--line);
+      border-radius: 14px;
+
+      cursor: pointer;
+
+      transition: 0.15s ease;
+    }
+
+    label.option:hover {
+      border-color: #4a4a52;
+      transform: translateY(-1px);
+    }
+
+    input[type="radio"] {
+      margin-top: 3px;
+      accent-color: var(--accent);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="url"] {
+      width: 100%;
+
+      padding: 14px 15px;
+
+      background: #0f0f11;
+      color: var(--text);
+
+      border: 1px solid var(--line);
+      border-radius: 12px;
+
+      outline: none;
+
+      font-size: 16px;
+    }
+
+    input:focus {
+      border-color: var(--accent);
+    }
+
+    .grid2 {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 14px;
+    }
+
+    .field label {
+      display: block;
+
+      margin: 0 0 7px;
+
+      color: var(--muted);
+
+      font-size: 13px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+
+      margin-top: 24px;
+    }
+
+    button {
+      appearance: none;
+
+      padding: 14px 20px;
+
+      border: 0;
+      border-radius: 999px;
+
+      font-size: 15px;
+      font-weight: 800;
+
+      cursor: pointer;
+    }
+
+    .primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .secondary {
+      background: #25252b;
+      color: white;
+
+      border: 1px solid #34343b;
+    }
+
+    .error {
+      display: none;
+
+      margin-top: 12px;
+
+      color: #ff8d87;
+
+      font-size: 14px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .result-hero {
+      text-align: center;
+
+      padding: 10px 0 24px;
+    }
+
+    .score {
+      margin: 18px 0;
+
+      font-size: clamp(72px, 15vw, 140px);
+      font-weight: 900;
+
+      letter-spacing: -0.07em;
+      line-height: 0.88;
+    }
+
+    .score small {
+      color: var(--muted);
+
+      font-size: 0.22em;
+
+      letter-spacing: 0;
+    }
+
+    .tier {
+      display: inline-block;
+
+      padding: 8px 12px;
+
+      background: rgba(255, 59, 48, 0.12);
+      color: #ff827b;
+
+      border: 1px solid rgba(255, 59, 48, 0.35);
+      border-radius: 999px;
+
+      font-size: 13px;
+      font-weight: 800;
+
+      letter-spacing: 0.08em;
+    }
+
+    .summary {
+      max-width: 740px;
+
+      margin: 16px auto 0;
+
+      color: #c9c9cf;
+
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .result-grid {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 16px;
+
+      margin-top: 18px;
+    }
+
+    .metric {
+      padding: 18px;
+
+      background: #111113;
+
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    .metric-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+
+      font-weight: 700;
+    }
+
+    .bar {
+      height: 8px;
+
+      margin-top: 11px;
+
+      background: #29292f;
+
+      border-radius: 999px;
+
+      overflow: hidden;
+    }
+
+    .bar > div {
+      height: 100%;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--accent),
+          var(--accent2)
+        );
+
+      border-radius: 999px;
+    }
+
+    .insight {
+      margin-top: 14px;
+      padding: 20px;
+
+      background: #101012;
+
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    .insight strong {
+      display: block;
+
+      margin-bottom: 6px;
+    }
+
+    .cta {
+      margin-top: 20px;
+      padding: 24px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #1c0e0e,
+          #18181b
+        );
+
+      border: 1px solid #4a2220;
+      border-radius: 18px;
+    }
+
+    .cta h3 {
+      margin: 0 0 8px;
+
+      font-size: 26px;
+    }
+
+    .cta p {
+      margin: 0 0 16px;
+
+      color: #c6c6cc;
+
+      line-height: 1.5;
+    }
+
+    .footnote {
+      margin-top: 18px;
+
+      color: #777781;
+
+      font-size: 12px;
+
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .grid2,
+      .result-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      .topbar {
+        margin-bottom: 28px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <main class="assessment-container">
+  <div class="wrap">
 
-    <!-- INTRO -->
-    <section class="intro">
-<section class="intro">
+    <div class="topbar">
 
-  <div class="brand-logo">
-    <img src="VNMIQ(3).png" alt="VNMIQ">
-  </div>
-
-  <p class="eyebrow">GTM INTELLIGENCE ASSESSMENT</p>
-
-  <h1>WHAT'S YOUR <span>GTM IQ™?</span></h1>
-
-  <p class="intro-text">
-    Evaluate the intelligence, scalability, and maturity of your
-    go-to-market engine across five critical dimensions.
-  </p>
-
-  <div class="assessment-meta">
-    25 QUESTIONS · 5 DIMENSIONS · ~5 MINUTES
-  </div>
-
-</section>
-
-    <!-- FORM -->
-    <form id="gtmAssessment">
-
-      <!-- CONTACT INFORMATION -->
-      <section class="form-section">
-
-        <div class="section-label">ABOUT YOU</div>
-        <h2>Let's start with your company.</h2>
-
-        <div class="contact-grid">
-
-          <div>
-            <label for="firstName">First Name *</label>
-            <input type="text" id="firstName" required>
-          </div>
-
-          <div>
-            <label for="lastName">Last Name *</label>
-            <input type="text" id="lastName" required>
-          </div>
-
-          <div>
-            <label for="email">Work Email *</label>
-            <input type="email" id="email" required>
-          </div>
-
-          <div>
-            <label for="company">Company *</label>
-            <input type="text" id="company" required>
-          </div>
-
-          <div>
-            <label for="title">Job Title</label>
-            <input type="text" id="title">
-          </div>
-
-          <div>
-            <label for="website">Company Website</label>
-            <input type="url" id="website" placeholder="https://">
-          </div>
-
-        </div>
-
-      </section>
-
-
-      <!-- INSTRUCTIONS -->
-      <section class="instructions">
-
-        <div class="section-label">HOW TO ANSWER</div>
-
-        <h2>Rate your GTM as it operates today.</h2>
-
-        <p>
-          Don't answer based on where you plan to be six months from now.
-          Select the response that most accurately reflects your organization today.
-        </p>
-
-        <div class="scale">
-          <span>1 — Not at all</span>
-          <span>2 — Beginning</span>
-          <span>3 — Partially</span>
-          <span>4 — Mostly</span>
-          <span>5 — Fully</span>
-        </div>
-
-      </section>
-
-
-      <!-- QUESTIONS GET INSERTED HERE -->
-      <div id="questionsContainer"></div>
-
-
-      <!-- SUBMIT -->
-      <section class="submit-section">
-
-        <button type="submit">
-          CALCULATE MY GTM IQ™ →
-        </button>
-
-        <p>
-          Your responses will be used to calculate your GTM IQ™
-          and identify opportunities across your go-to-market organization.
-        </p>
-
-      </section>
-
-    </form>
-
-
-    <!-- RESULTS -->
-    <section id="results" class="results hidden">
-
-      <p class="eyebrow">YOUR RESULTS</p>
-
-      <h2>YOUR GTM IQ™</h2>
-
-      <div class="score-circle">
-        <span id="overallScore">0</span>
-        <small>/100</small>
+      <div class="brand">
+        <span class="mark">IQ</span>
+        VNMIQ
       </div>
 
-      <h3 id="maturityLevel"></h3>
+      <div class="badge">
+        GTM IQ™ Assessment
+      </div>
 
-      <p id="maturityDescription"></p>
+    </div>
 
 
-      <div class="category-results">
+    <!-- =========================
+         ASSESSMENT
+    ========================== -->
 
-        <div class="result-row">
-          <span>POSITIONING IQ™</span>
-          <strong id="positioningScore">0</strong>
-        </div>
+    <section id="assessmentView">
 
-        <div class="result-row">
-          <span>MARKET IQ™</span>
-          <strong id="marketScore">0</strong>
-        </div>
+      <h1>
+        How intelligent is your go-to-market engine?
+      </h1>
 
-        <div class="result-row">
-          <span>REVENUE IQ™</span>
-          <strong id="revenueScore">0</strong>
-        </div>
+      <p class="lead">
+        Answer 21 questions across the seven systems that determine
+        whether your go-to-market motion is clear, repeatable,
+        measurable, and ready to scale.
+      </p>
 
-        <div class="result-row">
-          <span>AI + SYSTEMS IQ™</span>
-          <strong id="systemsScore">0</strong>
-        </div>
 
-        <div class="result-row">
-          <span>TEAM IQ™</span>
-          <strong id="teamScore">0</strong>
-        </div>
+      <div class="progress-shell">
+        <div id="progressBar" class="progress"></div>
+      </div>
+
+      <div class="progress-copy">
+
+        <span id="progressText">
+          0 of 21 answered
+        </span>
+
+        <span>
+          ~5 minutes
+        </span>
 
       </div>
 
 
-      <div class="opportunity-box">
-
-        <p class="section-label">YOUR BIGGEST OPPORTUNITY</p>
-
-        <h3 id="weakestCategory"></h3>
-
-        <p id="recommendation"></p>
-
-      </div>
+      <form id="gtmForm">
 
 
-      <div class="results-cta">
+        <!-- CONTACT INFORMATION -->
 
-        <h2>READY TO ENGINEER YOUR GTM?</h2>
+        <div class="card">
 
-        <p>
-          Your score identifies where the opportunity exists.
-          VNMIQ can help you determine what to do next.
-        </p>
+          <p class="section-title">
+            Your Information
+          </p>
 
-        <a href="#" class="cta-button">
-          BOOK A GTM INTELLIGENCE REVIEW →
-        </a>
+
+          <div class="grid2">
+
+            <div class="field">
+
+              <label for="name">
+                Name
+              </label>
+
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+              />
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="email">
+                Work Email
+              </label>
+
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+              />
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="company">
+                Company
+              </label>
+
+              <input
+                id="company"
+                name="company"
+                type="text"
+                required
+              />
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="website">
+                Website
+              </label>
+
+              <input
+                id="website"
+                name="website"
+                type="url"
+                placeholder="https://"
+              />
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- QUESTIONS GET INSERTED HERE -->
+
+        <div id="questions"></div>
+
+
+        <div class="actions">
+
+          <button
+            class="primary"
+            type="submit"
+          >
+            See My GTM IQ™ Score
+          </button>
+
+        </div>
+
+
+        <div
+          id="errorBox"
+          class="error"
+        >
+          Please answer every assessment question before submitting.
+        </div>
+
+      </form>
+
+    </section>
+
+
+
+    <!-- =========================
+         RESULTS
+    ========================== -->
+
+    <section
+      id="resultsView"
+      class="hidden"
+    >
+
+      <div class="card">
+
+
+        <div class="result-hero">
+
+          <p class="section-title">
+            Your GTM IQ™ Score
+          </p>
+
+
+          <div
+            id="tier"
+            class="tier"
+          ></div>
+
+
+          <div
+            id="overallScore"
+            class="score"
+          >
+            0
+            <small>/100</small>
+          </div>
+
+
+          <p
+            id="tierSummary"
+            class="summary"
+          ></p>
+
+        </div>
+
+
+
+        <!-- CATEGORY SCORES -->
+
+        <div
+          id="categoryResults"
+          class="result-grid"
+        ></div>
+
+
+
+        <!-- STRONGEST AREA -->
+
+        <div class="insight">
+
+          <strong>
+            Your Strongest GTM System
+          </strong>
+
+          <div id="strengthText"></div>
+
+        </div>
+
+
+
+        <!-- BIGGEST GAP -->
+
+        <div class="insight">
+
+          <strong>
+            Your Biggest Growth Constraint
+          </strong>
+
+          <div id="gapText"></div>
+
+        </div>
+
+
+
+        <!-- RECOMMENDATION -->
+
+        <div class="insight">
+
+          <strong>
+            Priority Recommendation
+          </strong>
+
+          <div id="recommendationText"></div>
+
+        </div>
+
+
+
+        <!-- CTA -->
+
+        <div class="cta">
+
+          <h3>
+            Turn the score into a growth plan.
+          </h3>
+
+          <p>
+            Your assessment identifies where the GTM motion is strongest
+            and where revenue is most likely leaking.
+
+            The next step is translating those gaps into a prioritized
+            execution roadmap.
+          </p>
+
+          <button
+            id="ctaButton"
+            class="primary"
+            type="button"
+          >
+            Build My GTM Growth Blueprint™
+          </button>
+
+        </div>
+
+
+        <p
+          id="saveStatus"
+          class="footnote"
+        ></p>
+
+
+        <div class="actions">
+
+          <button
+            id="retakeButton"
+            class="secondary"
+            type="button"
+          >
+            Retake Assessment
+          </button>
+
+        </div>
 
       </div>
 
     </section>
 
-  </main>
+  </div>
 
 
-  <script src="script.js"></script>
+
+<script>
+
+/* =====================================================
+   VNMIQ GTM IQ™ SCORING ENGINE
+===================================================== */
+
+
+/*
+OPTIONAL
+
+Later we can connect this to Google Sheets.
+
+For now leave blank.
+*/
+
+const SUBMISSION_ENDPOINT = "";
+
+
+/*
+CHANGE THIS URL
+
+Put your Squarespace consultation,
+product page, or booking page here.
+*/
+
+const CTA_URL = "/contact";
+
+
+
+/* =====================================================
+   SCORING CATEGORIES
+===================================================== */
+
+const categories = {
+
+  icp: {
+
+    label:
+      "ICP & Market Clarity",
+
+    weight:
+      0.17,
+
+    recommendation:
+      "Tighten your ICP before adding more channels. Define the highest-value customer segments, buying committee, pain triggers, disqualifiers, and the specific problems that create urgency."
+
+  },
+
+
+  positioning: {
+
+    label:
+      "Positioning & Value Proposition",
+
+    weight:
+      0.14,
+
+    recommendation:
+      "Sharpen your market position and value proposition. Your team should be able to explain who the offer is for, why it matters now, and why buyers should choose you over the status quo or competitors."
+
+  },
+
+
+  pipeline: {
+
+    label:
+      "Pipeline & Demand Generation",
+
+    weight:
+      0.17,
+
+    recommendation:
+      "Build a more predictable pipeline engine. Prioritize ICP-based account selection, trigger signals, outbound sequences, partner and referral channels, content, and channel-level conversion measurement."
+
+  },
+
+
+  sales: {
+
+    label:
+      "Sales Process & Conversion",
+
+    weight:
+      0.16,
+
+    recommendation:
+      "Standardize the sales motion. Define qualification, discovery, stage exit criteria, mutual action plans, objection handling, next-step discipline, and conversion benchmarks by stage."
+
+  },
+
+
+  revops: {
+
+    label:
+      "Revenue Operations & Data",
+
+    weight:
+      0.14,
+
+    recommendation:
+      "Strengthen your revenue operating system. Improve CRM discipline, stage definitions, dashboards, attribution, forecasting, pipeline coverage, and the KPIs leadership uses to make decisions."
+
+  },
+
+
+  ai: {
+
+    label:
+      "AI & Automation Readiness",
+
+    weight:
+      0.10,
+
+    recommendation:
+      "Use AI where it removes friction or improves signal quality. Start with research, account prioritization, lead enrichment, personalization, follow-up, call intelligence, and workflow automation."
+
+  },
+
+
+  scale: {
+
+    label:
+      "Team & Scalability",
+
+    weight:
+      0.12,
+
+    recommendation:
+      "Reduce founder or hero dependence. Document the motion, clarify ownership, create repeatable playbooks, and make the GTM system teachable enough that another person can execute it consistently."
+
+  }
+
+};
+
+
+
+/* =====================================================
+   ANSWER SCALE
+===================================================== */
+
+const answerScale = [
+
+  {
+    value: 1,
+    label: "Not in place"
+  },
+
+  {
+    value: 2,
+    label: "Early / inconsistent"
+  },
+
+  {
+    value: 3,
+    label: "Partially defined"
+  },
+
+  {
+    value: 4,
+    label: "Strong and repeatable"
+  },
+
+  {
+    value: 5,
+    label: "Optimized and measurable"
+  }
+
+];
+
+
+
+/* =====================================================
+   QUESTIONS
+===================================================== */
+
+const questions = [
+
+
+  /* ICP & MARKET CLARITY */
+
+  {
+    id: "q1",
+    category: "icp",
+    text:
+      "We have a clearly defined ideal customer profile based on real customer or market evidence."
+  },
+
+
+  {
+    id: "q2",
+    category: "icp",
+    text:
+      "We know the buyer roles, pain points, business triggers, and disqualifiers that define a high-fit opportunity."
+  },
+
+
+  {
+    id: "q3",
+    category: "icp",
+    text:
+      "Our team can prioritize the highest-value segments or accounts instead of targeting the market broadly."
+  },
+
+
+
+  /* POSITIONING */
+
+  {
+    id: "q4",
+    category: "positioning",
+    text:
+      "Our value proposition is clear, differentiated, and easy for a buyer to understand quickly."
+  },
+
+
+  {
+    id: "q5",
+    category: "positioning",
+    text:
+      "Our messaging connects specific customer problems to measurable business outcomes."
+  },
+
+
+  {
+    id: "q6",
+    category: "positioning",
+    text:
+      "Sales, marketing, and leadership communicate a consistent market story."
+  },
+
+
+
+  /* PIPELINE */
+
+  {
+    id: "q7",
+    category: "pipeline",
+    text:
+      "We have at least one reliable channel that consistently creates qualified pipeline."
+  },
+
+
+  {
+    id: "q8",
+    category: "pipeline",
+    text:
+      "We use defined account, lead, or buying signals to determine who should receive outreach."
+  },
+
+
+  {
+    id: "q9",
+    category: "pipeline",
+    text:
+      "We measure which campaigns and channels create qualified opportunities and revenue, not just activity."
+  },
+
+
+
+  /* SALES PROCESS */
+
+  {
+    id: "q10",
+    category: "sales",
+    text:
+      "Our sales process has clearly defined stages, qualification criteria, and next-step expectations."
+  },
+
+
+  {
+    id: "q11",
+    category: "sales",
+    text:
+      "We know our major conversion rates, common objections, and where opportunities typically stall or drop."
+  },
+
+
+  {
+    id: "q12",
+    category: "sales",
+    text:
+      "Our team consistently uses structured discovery, mutual action plans, or another repeatable close process."
+  },
+
+
+
+  /* REVOPS */
+
+  {
+    id: "q13",
+    category: "revops",
+    text:
+      "Our CRM accurately reflects pipeline, ownership, stage, next steps, and close timing."
+  },
+
+
+  {
+    id: "q14",
+    category: "revops",
+    text:
+      "Leadership has reliable dashboards for pipeline coverage, conversion, velocity, forecasting, and revenue performance."
+  },
+
+
+  {
+    id: "q15",
+    category: "revops",
+    text:
+      "Our GTM decisions are driven by clean data and defined KPIs rather than mostly intuition."
+  },
+
+
+
+  /* AI & AUTOMATION */
+
+  {
+    id: "q16",
+    category: "ai",
+    text:
+      "We use AI or automation to improve at least one meaningful GTM workflow beyond basic content generation."
+  },
+
+
+  {
+    id: "q17",
+    category: "ai",
+    text:
+      "Our GTM tools and workflows are connected well enough to reduce repetitive manual work."
+  },
+
+
+  {
+    id: "q18",
+    category: "ai",
+    text:
+      "We have a clear view of where AI can improve research, targeting, personalization, forecasting, or execution."
+  },
+
+
+
+  /* TEAM & SCALABILITY */
+
+  {
+    id: "q19",
+    category: "scale",
+    text:
+      "Our GTM motion is documented well enough that a new hire could learn and execute it."
+  },
+
+
+  {
+    id: "q20",
+    category: "scale",
+    text:
+      "Revenue generation does not depend entirely on one founder, executive, or top-performing seller."
+  },
+
+
+  {
+    id: "q21",
+    category: "scale",
+    text:
+      "Roles, ownership, handoffs, and accountability across marketing, sales, customer success, and operations are clear."
+  }
+
+];
+
+
+
+/* =====================================================
+   RENDER QUESTIONS
+===================================================== */
+
+function renderQuestions() {
+
+  const container =
+    document.getElementById("questions");
+
+
+  const grouped = {};
+
+
+  questions.forEach((question) => {
+
+    if (!grouped[question.category]) {
+
+      grouped[question.category] = [];
+
+    }
+
+
+    grouped[question.category].push(question);
+
+  });
+
+
+
+  Object.entries(grouped).forEach(
+    ([categoryKey, categoryQuestions]) => {
+
+
+      const card =
+        document.createElement("div");
+
+
+      card.className =
+        "card";
+
+
+      card.innerHTML =
+        `
+        <p class="section-title">
+          ${categories[categoryKey].label}
+        </p>
+        `;
+
+
+
+      categoryQuestions.forEach(
+        (question) => {
+
+
+          const block =
+            document.createElement("div");
+
+
+          block.className =
+            "question";
+
+
+          block.innerHTML =
+            `
+            <h3>
+              ${question.text}
+            </h3>
+
+            <div class="options">
+
+              ${answerScale.map(
+                (option) => `
+
+                <label class="option">
+
+                  <input
+                    type="radio"
+                    name="${question.id}"
+                    value="${option.value}"
+                    required
+                  />
+
+                  <span>
+                    ${option.label}
+                  </span>
+
+                </label>
+
+              `).join("")}
+
+            </div>
+            `;
+
+
+          card.appendChild(block);
+
+        }
+      );
+
+
+      container.appendChild(card);
+
+    }
+  );
+
+}
+
+
+
+/* =====================================================
+   PROGRESS BAR
+===================================================== */
+
+function updateProgress() {
+
+  const answered =
+    questions.filter(
+      (question) =>
+        document.querySelector(
+          `input[name="${question.id}"]:checked`
+        )
+    ).length;
+
+
+  const percentage =
+    Math.round(
+      (answered / questions.length) * 100
+    );
+
+
+  document.getElementById(
+    "progressBar"
+  ).style.width =
+    percentage + "%";
+
+
+  document.getElementById(
+    "progressText"
+  ).textContent =
+    `${answered} of ${questions.length} answered`;
+
+}
+
+
+
+/* =====================================================
+   CALCULATE SCORES
+===================================================== */
+
+function calculateScores() {
+
+
+  const sums = {};
+
+  const counts = {};
+
+
+  Object.keys(categories).forEach(
+    (category) => {
+
+      sums[category] = 0;
+
+      counts[category] = 0;
+
+    }
+  );
+
+
+
+  questions.forEach(
+    (question) => {
+
+
+      const checked =
+        document.querySelector(
+          `input[name="${question.id}"]:checked`
+        );
+
+
+      const value =
+        Number(checked.value);
+
+
+      sums[question.category] +=
+        value;
+
+
+      counts[question.category] +=
+        1;
+
+    }
+  );
+
+
+
+  const categoryScores = {};
+
+
+
+  Object.keys(categories).forEach(
+    (category) => {
+
+
+      categoryScores[category] =
+        Math.round(
+
+          (
+            sums[category] /
+            (counts[category] * 5)
+          ) * 100
+
+        );
+
+    }
+  );
+
+
+
+  const overall =
+    Math.round(
+
+      Object.entries(categories)
+        .reduce(
+
+          (
+            total,
+            [categoryKey, category]
+          ) => {
+
+            return (
+              total +
+              categoryScores[categoryKey] *
+              category.weight
+            );
+
+          },
+
+          0
+
+        )
+
+    );
+
+
+
+  return {
+
+    overall,
+    categoryScores
+
+  };
+
+}
+
+
+
+/* =====================================================
+   SCORE TIERS
+===================================================== */
+
+function getTier(score) {
+
+
+  if (score >= 85) {
+
+    return {
+
+      name:
+        "GTM INTELLIGENCE LEADER",
+
+      summary:
+        "Your go-to-market engine is highly developed. The opportunity now is optimization: improving signal quality, conversion efficiency, automation, and the systems required to scale without adding unnecessary complexity."
+
+    };
+
+  }
+
+
+
+  if (score >= 70) {
+
+    return {
+
+      name:
+        "SCALE READY",
+
+      summary:
+        "You have a strong GTM foundation with several repeatable systems already in place. Your next growth curve will come from closing the remaining gaps and making execution more measurable, automated, and scalable."
+
+    };
+
+  }
+
+
+
+  if (score >= 55) {
+
+    return {
+
+      name:
+        "BUILDING",
+
+      summary:
+        "You have the foundation of a viable go-to-market motion, but important parts of the system are still inconsistent. Scaling before fixing those gaps could create more activity without producing predictable revenue."
+
+    };
+
+  }
+
+
+
+  if (score >= 40) {
+
+    return {
+
+      name:
+        "EARLY GTM",
+
+      summary:
+        "Your GTM motion is taking shape, but several critical systems are still founder-led, informal, or difficult to measure. Focus on clarity and repeatability before adding significant headcount or spend."
+
+    };
+
+  }
+
+
+
+  return {
+
+    name:
+      "FOUNDATION STAGE",
+
+    summary:
+      "Your biggest opportunity is building the fundamentals of the GTM engine. Start with ICP, positioning, pipeline creation, and a defined sales process before layering on more tools, channels, or automation."
+
+  };
+
+}
+
+
+
+/* =====================================================
+   CATEGORY INTERPRETATION
+===================================================== */
+
+function categoryInterpretation(
+  label,
+  score
+) {
+
+
+  if (score >= 85) {
+
+    return (
+      `${label} is a competitive advantage and appears highly repeatable.`
+    );
+
+  }
+
+
+
+  if (score >= 70) {
+
+    return (
+      `${label} is strong, with targeted optimization opportunities remaining.`
+    );
+
+  }
+
+
+
+  if (score >= 55) {
+
+    return (
+      `${label} has a workable foundation but is not yet consistently repeatable.`
+    );
+
+  }
+
+
+
+  if (score >= 40) {
+
+    return (
+      `${label} is likely creating friction or unpredictability in the current GTM motion.`
+    );
+
+  }
+
+
+
+  return (
+    `${label} is a priority gap and should be addressed before aggressive scaling.`
+  );
+
+}
+
+
+
+/* =====================================================
+   BUILD RECOMMENDATION
+===================================================== */
+
+function buildRecommendation(
+  categoryScores
+) {
+
+
+  const sorted =
+    Object.entries(categoryScores)
+      .sort(
+        (a, b) =>
+          a[1] - b[1]
+      );
+
+
+  const lowest =
+    sorted[0];
+
+
+  const secondLowest =
+    sorted[1];
+
+
+
+  let recommendation =
+    categories[
+      lowest[0]
+    ].recommendation;
+
+
+
+  if (
+    secondLowest[1] <=
+    lowest[1] + 8
+  ) {
+
+    recommendation +=
+
+      ` Your second priority is ${categories[secondLowest[0]].label.toLowerCase()}, which is scoring at a similar level and may be reinforcing the same growth constraint.`;
+
+  }
+
+
+
+  return recommendation;
+
+}
+
+
+
+/* =====================================================
+   SAVE SUBMISSION
+===================================================== */
+
+async function saveSubmission(
+  payload
+) {
+
+
+  const status =
+    document.getElementById(
+      "saveStatus"
+    );
+
+
+
+  /*
+  Browser backup
+  */
+
+  localStorage.setItem(
+
+    "vnmiq_gtm_iq_latest",
+
+    JSON.stringify(payload)
+
+  );
+
+
+
+  /*
+  No database connected yet
+  */
+
+  if (!SUBMISSION_ENDPOINT) {
+
+    status.textContent =
+      "Your GTM IQ™ score has been calculated successfully.";
+
+    return;
+
+  }
+
+
+
+  /*
+  Send to Google Sheets / backend
+  */
+
+  try {
+
+
+    await fetch(
+
+      SUBMISSION_ENDPOINT,
+
+      {
+
+        method:
+          "POST",
+
+        mode:
+          "no-cors",
+
+        headers: {
+
+          "Content-Type":
+            "application/json"
+
+        },
+
+        body:
+          JSON.stringify(payload)
+
+      }
+
+    );
+
+
+    status.textContent =
+      "Your assessment has been submitted to VNMIQ.";
+
+
+  }
+
+  catch (error) {
+
+
+    console.error(error);
+
+
+    status.textContent =
+      "Your score is complete, but the submission could not be saved externally.";
+
+  }
+
+}
+
+
+
+/* =====================================================
+   DISPLAY RESULTS
+===================================================== */
+
+function showResults(
+  scores
+) {
+
+
+  const tier =
+    getTier(
+      scores.overall
+    );
+
+
+
+  document.getElementById(
+    "tier"
+  ).textContent =
+    tier.name;
+
+
+
+  document.getElementById(
+    "overallScore"
+  ).innerHTML =
+
+    `${scores.overall}<small>/100</small>`;
+
+
+
+  document.getElementById(
+    "tierSummary"
+  ).textContent =
+    tier.summary;
+
+
+
+  /* CATEGORY SCORES */
+
+
+  const categoryResults =
+    document.getElementById(
+      "categoryResults"
+    );
+
+
+  categoryResults.innerHTML =
+    "";
+
+
+
+  Object.entries(
+    scores.categoryScores
+  ).forEach(
+
+    ([categoryKey, score]) => {
+
+
+      const card =
+        document.createElement(
+          "div"
+        );
+
+
+      card.className =
+        "metric";
+
+
+      card.innerHTML =
+        `
+
+        <div class="metric-head">
+
+          <span>
+            ${categories[categoryKey].label}
+          </span>
+
+          <span>
+            ${score}
+          </span>
+
+        </div>
+
+
+        <div class="bar">
+
+          <div
+            style="width:${score}%"
+          ></div>
+
+        </div>
+
+        `;
+
+
+      categoryResults.appendChild(
+        card
+      );
+
+    }
+
+  );
+
+
+
+  /* FIND STRONGEST + WEAKEST */
+
+
+  const sorted =
+    Object.entries(
+      scores.categoryScores
+    )
+    .sort(
+      (a, b) =>
+        b[1] - a[1]
+    );
+
+
+
+  const strongest =
+    sorted[0];
+
+
+  const weakest =
+    sorted[
+      sorted.length - 1
+    ];
+
+
+
+  /* STRENGTH */
+
+
+  document.getElementById(
+    "strengthText"
+  ).textContent =
+
+    `${categories[strongest[0]].label} — ${strongest[1]}/100. ${categoryInterpretation(
+      categories[strongest[0]].label,
+      strongest[1]
+    )}`;
+
+
+
+  /* GAP */
+
+
+  document.getElementById(
+    "gapText"
+  ).textContent =
+
+    `${categories[weakest[0]].label} — ${weakest[1]}/100. ${categoryInterpretation(
+      categories[weakest[0]].label,
+      weakest[1]
+    )}`;
+
+
+
+  /* RECOMMENDATION */
+
+
+  document.getElementById(
+    "recommendationText"
+  ).textContent =
+
+    buildRecommendation(
+      scores.categoryScores
+    );
+
+
+
+  /* SWITCH TO RESULTS SCREEN */
+
+
+  document.getElementById(
+    "assessmentView"
+  ).classList.add(
+    "hidden"
+  );
+
+
+  document.getElementById(
+    "resultsView"
+  ).classList.remove(
+    "hidden"
+  );
+
+
+  window.scrollTo({
+
+    top: 0,
+
+    behavior: "smooth"
+
+  });
+
+}
+
+
+
+/* =====================================================
+   FORM EVENTS
+===================================================== */
+
+document.getElementById(
+  "gtmForm"
+).addEventListener(
+
+  "change",
+
+  updateProgress
+
+);
+
+
+
+document.getElementById(
+  "gtmForm"
+).addEventListener(
+
+  "submit",
+
+  async (event) => {
+
+
+    event.preventDefault();
+
+
+
+    /*
+    Check for unanswered questions
+    */
+
+
+    const unanswered =
+      questions.filter(
+
+        (question) =>
+
+          !document.querySelector(
+
+            `input[name="${question.id}"]:checked`
+
+          )
+
+      );
+
+
+
+    if (
+      unanswered.length
+    ) {
+
+
+      document.getElementById(
+        "errorBox"
+      ).style.display =
+        "block";
+
+
+
+      document.querySelector(
+
+        `input[name="${unanswered[0].id}"]`
+
+      )?.scrollIntoView({
+
+        behavior:
+          "smooth",
+
+        block:
+          "center"
+
+      });
+
+
+
+      return;
+
+    }
+
+
+
+    document.getElementById(
+      "errorBox"
+    ).style.display =
+      "none";
+
+
+
+    /* CALCULATE */
+
+
+    const scores =
+      calculateScores();
+
+
+
+    /* SAVE RAW ANSWERS */
+
+
+    const answers =
+      {};
+
+
+    questions.forEach(
+
+      (question) => {
+
+
+        answers[
+          question.id
+        ] =
+
+          Number(
+
+            document.querySelector(
+
+              `input[name="${question.id}"]:checked`
+
+            ).value
+
+          );
+
+      }
+
+    );
+
+
+
+    /* BUILD SUBMISSION RECORD */
+
+
+    const payload = {
+
+
+      submittedAt:
+        new Date().toISOString(),
+
+
+      name:
+        document.getElementById(
+          "name"
+        ).value.trim(),
+
+
+      email:
+        document.getElementById(
+          "email"
+        ).value.trim(),
+
+
+      company:
+        document.getElementById(
+          "company"
+        ).value.trim(),
+
+
+      website:
+        document.getElementById(
+          "website"
+        ).value.trim(),
+
+
+      overallScore:
+        scores.overall,
+
+
+      tier:
+        getTier(
+          scores.overall
+        ).name,
+
+
+      categoryScores:
+        scores.categoryScores,
+
+
+      strongestCategory:
+
+        Object.entries(
+          scores.categoryScores
+        )
+        .sort(
+          (a, b) =>
+            b[1] - a[1]
+        )[0][0],
+
+
+      weakestCategory:
+
+        Object.entries(
+          scores.categoryScores
+        )
+        .sort(
+          (a, b) =>
+            a[1] - b[1]
+        )[0][0],
+
+
+      answers:
+        answers
+
+    };
+
+
+
+    /*
+    SHOW RESULT IMMEDIATELY
+    */
+
+
+    showResults(
+      scores
+    );
+
+
+
+    /*
+    SAVE LEAD
+    */
+
+
+    await saveSubmission(
+      payload
+    );
+
+  }
+
+);
+
+
+
+/* =====================================================
+   RETAKE
+===================================================== */
+
+document.getElementById(
+  "retakeButton"
+).addEventListener(
+
+  "click",
+
+  () => {
+
+
+    document.getElementById(
+      "gtmForm"
+    ).reset();
+
+
+    updateProgress();
+
+
+    document.getElementById(
+      "resultsView"
+    ).classList.add(
+      "hidden"
+    );
+
+
+    document.getElementById(
+      "assessmentView"
+    ).classList.remove(
+      "hidden"
+    );
+
+
+    window.scrollTo({
+
+      top: 0,
+
+      behavior:
+        "smooth"
+
+    });
+
+  }
+
+);
+
+
+
+/* =====================================================
+   CTA
+===================================================== */
+
+document.getElementById(
+  "ctaButton"
+).addEventListener(
+
+  "click",
+
+  () => {
+
+    window.location.href =
+      CTA_URL;
+
+  }
+
+);
+
+
+
+/* =====================================================
+   START
+===================================================== */
+
+renderQuestions();
+
+updateProgress();
+
+</script>
 
 </body>
 </html>
-<div id="questionsContainer"></div>
-<div class="brand-logo">
-  <img src="vnmiq-logo.png" alt="VNMIQ">
-</div>
